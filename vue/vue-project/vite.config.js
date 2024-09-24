@@ -24,12 +24,12 @@ export default defineConfig({
     port: 8081,
     cors: true,
     // proxy: 'http://127.0.0.1:8001/'
-    proxy: {
-      '/api': {
-        target: 'http://127.0.0.1:8001/',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/ttt/, ''),
-      }
-    }
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://127.0.0.1:8001/',
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/api/, ''),
+    //   }
+    // }
   }
 })

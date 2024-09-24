@@ -8,15 +8,15 @@ onMounted(() => {
 
 function sendGet() {
   console.log('run');
-  xhr.open('GET', 'http://127.0.0.1:8001/ttt');
+  xhr.open('GET', 'http://localhost:80/api/api-get');
   xhr.send();
   xhr.onload = function() {
-    console.log(xhr.response, 'res');
+    console.log(xhr.response, 'res-get');
   }
 }
 
 function sendPost() {
-  xhr.open('POST', 'http://127.0.0.1:8001/ttt');
+  xhr.open('POST', 'http://localhost:80/api/api-post');
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.send('aaa=bar');
   xhr.onload = function() {
