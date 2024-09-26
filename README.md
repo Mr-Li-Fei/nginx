@@ -99,5 +99,27 @@ location ~* \.(png|jpg)$ {
 ......
 ```
 3. 浏览器中请求localhost:8009/kill_nginx.png ,可以成功看到照片，
+# https 服务器得反向代理
+1.  首先， 创建一个https 服务器（https-server.js 文件）
+2.  针对nginx , 在配置https 得反向代理时， 需要将证书文件放在/conf文件夹下， 和nginx.conf 同目录
+3.  在配置https得server中，配置证书
+```
+......
+# 省略一些配置
+server {
+    listen 443 ssl;
+    server_name localhost;
+
+    ssl_certificate cert/certificate.pem;
+    ssl_certificate_key cert/private.pem;
+
+    location / {
+        root html
+        index index.html index.htm;
+        proxy_pass https://localhost:8000/
+    }
+}
+......
+```
 
 
